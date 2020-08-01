@@ -1,4 +1,4 @@
-package homework_1;
+package tests.homework_2_First_Autotest_Launching;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
