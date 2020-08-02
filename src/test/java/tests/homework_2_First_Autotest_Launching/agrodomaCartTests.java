@@ -18,8 +18,10 @@ public class agrodomaCartTests {
 
   @Test
   void addingToCartFromProductPage () {
-    // Перейти на страницу каталога
-    $(byTitle("Домашнее дерево")).click(); // как навести на элемент, но не нажимать на него?
+    // Навести курсор на раздел
+    $(byTitle("Домашнее дерево")).hover();
+    // Выбрать подраздел
+    $(byText("Цитрус")).click();
     // Перейти на страницу продукта
     $(byText("Лимон комнатный")).click();
     // Добавить продукт в корзину
@@ -27,7 +29,7 @@ public class agrodomaCartTests {
     // Проверить, что продукт есть в корзине
     $(byClassName("mini-cart-info")).shouldHave(text("Лимон комнатный"));
     // Удалить продукт из корзины
-//    $(".fa-times").click(); //снова проблема с opacity, поэтому продукт из корзины не удаляется...
+    $(".remove").shouldBe(visible).click();
   }
 
   @Test
@@ -38,6 +40,8 @@ public class agrodomaCartTests {
     $(byText("Гинкго (бонсай)")).parent().parent().$(byValue("В корзину")).click(); // как найти просто по слову "Гинкго"?
     // Проверить, что продукт есть в корзине
     $(byClassName("mini-cart-info")).shouldHave(text("Гинкго (бонсай)"));
+    // Удалить продукт из корзины
+    $(".remove").shouldBe(visible).click();
   }
 
 
