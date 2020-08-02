@@ -28,7 +28,7 @@ public class agrodomaCartTests {
     // Добавить продукт в корзину
     $(byValue("В корзину")).click();
     // Проверить, что продукт есть в корзине
-    $(byClassName("mini-cart-info")).shouldHave(text("Лимон комнатный"));
+    $(byClassName("mini-cart-info")).shouldBe(visible).shouldHave(text("Лимон комнатный"));
   }
 
   @Test
@@ -38,8 +38,7 @@ public class agrodomaCartTests {
     // Найти карточку товара и добавить с неё продукт в корзину
     $(byText("Гинкго (бонсай)")).parent().parent().$(byValue("В корзину")).click(); // как найти просто по слову "Гинкго"?
     // Проверить, что продукт есть в корзине
-    $(byClassName("mini-cart-info")).shouldHave(text("Гинкго (бонсай)"));
-    // Удалить продукт из корзины
+    $(byClassName("mini-cart-info")).shouldBe(visible).shouldHave(text("Гинкго (бонсай)"));
   }
 
   @AfterEach
