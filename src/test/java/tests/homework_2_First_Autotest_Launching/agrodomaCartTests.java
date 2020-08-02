@@ -1,5 +1,6 @@
 package tests.homework_2_First_Autotest_Launching;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -28,8 +29,6 @@ public class agrodomaCartTests {
     $(byValue("В корзину")).click();
     // Проверить, что продукт есть в корзине
     $(byClassName("mini-cart-info")).shouldHave(text("Лимон комнатный"));
-    // Удалить продукт из корзины
-    $(".remove").shouldBe(visible).click();
   }
 
   @Test
@@ -41,9 +40,12 @@ public class agrodomaCartTests {
     // Проверить, что продукт есть в корзине
     $(byClassName("mini-cart-info")).shouldHave(text("Гинкго (бонсай)"));
     // Удалить продукт из корзины
-    $(".remove").shouldBe(visible).click();
   }
 
-
+  @AfterEach
+  void removeFromCart() {
+    // Удалить продукт из корзины
+    $(".remove").shouldBe(visible).click();
+  }
 
 }
