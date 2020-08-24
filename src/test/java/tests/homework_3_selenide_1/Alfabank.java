@@ -1,6 +1,5 @@
-package tests.homework3_Selenide_1;
+package tests.homework_3_selenide_1;
 
-import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

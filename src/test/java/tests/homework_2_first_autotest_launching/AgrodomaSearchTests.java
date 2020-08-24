@@ -1,14 +1,15 @@
-package tests.homework_2_First_Autotest_Launching;
+package tests.homework_2_first_autotest_launching;
 
-import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.Objects;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class agrodomaSearchTests {
+public class AgrodomaSearchTests {
   private static String url = "http://agrodoma.ru/";
 
   @BeforeEach
@@ -21,7 +22,7 @@ public class agrodomaSearchTests {
     String plantName = "Дионея";
     // Нажать на лупу и ввести название растения
     $(".fa-search").click();
-    $(getFocusedElement()).setValue(plantName).pressEnter();
+    $(Objects.requireNonNull(getFocusedElement())).setValue(plantName).pressEnter();
     // Проверить, что в результатах есть это растение
     $(byText("Товары, соответствующие критериям поиска")).shouldHave(text(plantName));
   }
@@ -30,7 +31,7 @@ public class agrodomaSearchTests {
   void notExistItemSearch() {
     // Нажать на лупу и ввести название растения
     $(".fa-search").click();
-    $(getFocusedElement()).setValue("blah-blah").pressEnter();
+    $(Objects.requireNonNull(getFocusedElement())).setValue("blah-blah").pressEnter();
     // Проверить, что в результат поиска ничего нет
     $(".content").shouldHave(text("Нет товаров, соответствующих критериям поиска."));
   }

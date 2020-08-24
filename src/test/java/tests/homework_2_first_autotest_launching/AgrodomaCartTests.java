@@ -1,17 +1,15 @@
-package tests.homework_2_First_Autotest_Launching;
+package tests.homework_2_first_autotest_launching;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class agrodomaCartTests {
+public class AgrodomaCartTests {
   private static String url = "http://agrodoma.ru/";
 
-  @BeforeEach
   void openBrowser(){
     // Открыть главную страницу
     open(url);
@@ -19,6 +17,7 @@ public class agrodomaCartTests {
 
   @Test
   void addingToCartFromProductPage () {
+    openBrowser();
     // Навести курсор на раздел
     $(byTitle("Домашнее дерево")).hover();
     // Выбрать подраздел
@@ -28,17 +27,18 @@ public class agrodomaCartTests {
     // Добавить продукт в корзину
     $(byValue("В корзину")).click();
     // Проверить, что продукт есть в корзине
-    $(byClassName("mini-cart-info")).shouldBe(visible).shouldHave(text("Лимон комнатный"));
+    $(byClassName("mini-cart-info")).shouldHave(text("Лимон комнатный"));
   }
 
   @Test
   void addingToCartFromCatalogPage() {
+    openBrowser();
     // Перейти на страницу каталога
     $(byTitle("Бонсай домашний")).click();
     // Найти карточку товара и добавить с неё продукт в корзину
-    $(byText("Гинкго (бонсай)")).parent().parent().$(byValue("В корзину")).click(); // как найти просто по слову "Гинкго"?
+    $(withText("Гинкго")).parent().parent().$(byValue("В корзину")).click(); // как найти просто по слову "Гинкго"?
     // Проверить, что продукт есть в корзине
-    $(byClassName("mini-cart-info")).shouldBe(visible).shouldHave(text("Гинкго (бонсай)"));
+    $(byClassName("mini-cart-info")).shouldHave(text("Гинкго (бонсай)"));
   }
 
   @AfterEach
