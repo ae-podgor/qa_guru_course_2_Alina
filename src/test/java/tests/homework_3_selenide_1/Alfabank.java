@@ -11,13 +11,13 @@ import static com.codeborne.selenide.CollectionCondition.*;
 
 public class Alfabank {
 
-    @BeforeEach
     void openMainPage() {
         open("https://alfabank.ru/");
     }
 
     @Test
     void question() {
+        openMainPage();
         $(byTitle("Вклады")).click();
 
         //Есть ли разница между $("h1 div"); и $("h1").$("div"); - может ли
@@ -31,6 +31,7 @@ public class Alfabank {
 
     @Test
     void archiveDepositsCheck() {
+        openMainPage();
         // Переход на страницу с архивными депозитами с главной страницы
         $(byTitle("Вклады")).hover();
         $(byTitle("Депозиты")).click();
@@ -42,6 +43,7 @@ public class Alfabank {
 
     @Test
     void insuranceTransit() {
+        openMainPage();
         // Запрограммируйте тест переход на страницу Вклады->Страхование
         // вкладов, используя для поиска sibling(), preceding(), parent(), closest()
         $(byTitle("Вклады")).click();
