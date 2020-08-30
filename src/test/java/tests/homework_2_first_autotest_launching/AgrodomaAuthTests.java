@@ -1,18 +1,14 @@
 package tests.homework_2_first_autotest_launching;
 
-import io.qameta.allure.selenide.AllureSelenide;
-import jdk.nashorn.internal.ir.annotations.Ignore;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.value;
-import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.byValue;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
-@Disabled
 public class AgrodomaAuthTests {
     private static String url = "http://agrodoma.ru/";
     private static String email = "piffatko@gmail.com";
