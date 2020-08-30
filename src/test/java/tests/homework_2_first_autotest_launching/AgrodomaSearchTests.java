@@ -1,7 +1,6 @@
 package tests.homework_2_first_autotest_launching;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.Objects;
@@ -10,7 +9,6 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-@Disabled
 public class AgrodomaSearchTests {
     private static String url = "http://agrodoma.ru/";
 
