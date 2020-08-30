@@ -2,6 +2,7 @@ package tests.homework_2_first_autotest_launching;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import tests.TestBase;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -9,7 +10,7 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class AgrodomaCartTests {
+public class AgrodomaCartTests extends TestBase {
     private static String url = "http://agrodoma.ru/";
 
     void openBrowser() {

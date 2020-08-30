@@ -1,6 +1,7 @@
 package tests.homework_2_first_autotest_launching;
 
 import org.junit.jupiter.api.Test;
+import tests.TestBase;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.value;
@@ -9,7 +10,7 @@ import static com.codeborne.selenide.Selectors.byValue;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class AgrodomaAuthTests {
+public class AgrodomaAuthTests extends TestBase {
     private static String url = "http://agrodoma.ru/";
     private static String email = "piffatko@gmail.com";
     private static String password = "Qwerty123!";
