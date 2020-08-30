@@ -25,13 +25,6 @@ public class AgrodomaAuthTests {
         $(".fa-user").click();
     }
 
-    @BeforeEach
-    public void initLogger() {
-        addListener("allure", new AllureSelenide()
-                .savePageSource(true)
-                .screenshots(true));
-    }
-
     @Test
     void successfulLogin() {
         goToAuthPage();

@@ -12,20 +12,12 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 
-@Disabled
 public class AgrodomaCartTests {
     private static String url = "http://agrodoma.ru/";
 
     void openBrowser() {
         // Открыть главную страницу
         open(url);
-    }
-
-    @BeforeEach
-    public void initLogger() {
-        addListener("allure", new AllureSelenide()
-                .savePageSource(true)
-                .screenshots(true));
     }
 
     @Test

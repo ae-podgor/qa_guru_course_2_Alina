@@ -22,13 +22,6 @@ public class AgrodomaSearchTests {
         open(url);
     }
 
-    @BeforeEach
-    public void initLogger() {
-        addListener("allure", new AllureSelenide()
-                .savePageSource(true)
-                .screenshots(true));
-    }
-
     @Test
     void flowerSearch() {
         String plantName = "Дионея";

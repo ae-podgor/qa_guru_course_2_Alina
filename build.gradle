@@ -41,3 +41,9 @@ task tests(type: Test) {
 test {
     useJUnitPlatform()
 }
+
+task onlyAlfabankTests(type: Test) {
+    useJUnitPlatform {
+        includeTags("Alfabank")
+    }
+}

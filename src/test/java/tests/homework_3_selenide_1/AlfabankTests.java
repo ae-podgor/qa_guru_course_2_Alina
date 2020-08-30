@@ -3,7 +3,9 @@ package tests.homework_3_selenide_1;
 import com.codeborne.selenide.Configuration;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import tests.TestBase;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
@@ -12,21 +14,12 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 
-public class AlfabankTests {
+@Tag("Alfabank")
+public class AlfabankTests extends TestBase {
 
     public void openMainPage() {
         open("https://alfabank.ru/");
     }
-
-    @BeforeEach
-    public void initLoggerAndHeadless() {
-        addListener("allure", new AllureSelenide()
-                .savePageSource(true)
-                .screenshots(true));
-        Configuration.headless = true;
-    }
-
-
 
     @Test
         // Есть ли разница между $("h1 div"); и $("h1").$("div"); - может ли
