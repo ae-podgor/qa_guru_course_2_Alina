@@ -1,5 +1,6 @@
 package tests.homework_3_selenide_1;
 
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -8,11 +9,19 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selectors.*;
 
 import static com.codeborne.selenide.CollectionCondition.*;
+import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 
 public class AlfabankTests {
 
-    void openMainPage() {
+    public void openMainPage() {
         open("https://alfabank.ru/");
+    }
+
+    @BeforeEach
+    public void initLogger() {
+        addListener("allure", new AllureSelenide()
+                .savePageSource(true)
+                .screenshots(true));
     }
 
     @Test

@@ -1,11 +1,14 @@
 package tests.homework_2_first_autotest_launching;
 
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 
 public class AgrodomaCartTests {
   private static String url = "http://agrodoma.ru/";
@@ -13,6 +16,13 @@ public class AgrodomaCartTests {
   void openBrowser(){
     // Открыть главную страницу
     open(url);
+  }
+
+  @BeforeEach
+  public void initLogger() {
+    addListener("allure", new AllureSelenide()
+            .savePageSource(true)
+            .screenshots(true));
   }
 
   @Test

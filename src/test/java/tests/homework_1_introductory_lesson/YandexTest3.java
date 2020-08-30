@@ -10,6 +10,8 @@ import static com.codeborne.selenide.Selenide.open;
 class YandexTest3 {
   @Test
   void avitoSearchTest() {
+
+
     open("http://yandex.ru");
 
     $(byName("text")).setValue("объявления").pressEnter();
