@@ -1,5 +1,9 @@
 package tests.homework_2_first_autotest_launching;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.TestBase;
 
@@ -9,6 +13,9 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
+@Owner("apodgornova")
+@Epic("Тесты сайта agrodoma.ru")
+@Feature("Работа с поиском товаров")
 public class AgrodomaSearchTests extends TestBase {
     private static String url = "http://agrodoma.ru/";
 
@@ -17,6 +24,7 @@ public class AgrodomaSearchTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Пользователь должен иметь возможность найти товар после ввода ключевого слова в строку поиска")
     void flowerSearch() {
         openBrowser();
         String plantName = "Дионея";
@@ -28,6 +36,7 @@ public class AgrodomaSearchTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Пользователь не должен найти товар, если было введено наименование несуществующего в каталоге товара")
     void notExistItemSearch() {
         openBrowser();
         // Нажать на лупу и ввести название растения

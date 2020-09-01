@@ -1,5 +1,9 @@
 package tests.homework_2_first_autotest_launching;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.TestBase;
 
@@ -10,6 +14,9 @@ import static com.codeborne.selenide.Selectors.byValue;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
+@Owner("apodgornova")
+@Epic("Тесты сайта agrodoma.ru")
+@Feature("Авторизация на сайте")
 public class AgrodomaAuthTests extends TestBase {
     private static String url = "http://agrodoma.ru/";
     private static String email = "piffatko@gmail.com";
@@ -23,6 +30,7 @@ public class AgrodomaAuthTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Пользователь должен иметь возможность авторизоваться на сайта")
     void successfulLogin() {
         goToAuthPage();
         $("#input-email").setValue(email);
@@ -41,6 +49,7 @@ public class AgrodomaAuthTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Пользователь не должен авторизоваться, если был введён неверный e-mail")
     void wrongEmailLogin() {
         goToAuthPage();
         $("#input-email").setValue("wrongemail@mail.com");
@@ -52,6 +61,7 @@ public class AgrodomaAuthTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Пользователь не должен авторизоваться, если был введён неверный пароль")
     void wrongPasswordLogin() {
         goToAuthPage();
         $("#input-email").setValue(email);

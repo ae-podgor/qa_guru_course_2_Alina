@@ -1,6 +1,10 @@
 package tests.homework_2_first_autotest_launching;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.TestBase;
 
@@ -10,6 +14,9 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
+@Owner("apodgornova")
+@Epic("Тесты сайта agrodoma.ru")
+@Feature("Работа с корзиной")
 public class AgrodomaCartTests extends TestBase {
     private static String url = "http://agrodoma.ru/";
 
@@ -19,6 +26,7 @@ public class AgrodomaCartTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Пользователь должен иметь возможность добавить товар в корзину с карточки товара")
     void addingToCartFromProductPage() {
         openBrowser();
         // Навести курсор на раздел
@@ -34,6 +42,7 @@ public class AgrodomaCartTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Пользователь должен иметь возможность добавить товар в корзину со страницы каталога товаров")
     void addingToCartFromCatalogPage() {
         openBrowser();
         // Перейти на страницу каталога
