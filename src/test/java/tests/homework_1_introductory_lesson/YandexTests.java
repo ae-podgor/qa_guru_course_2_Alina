@@ -13,7 +13,6 @@ import static com.codeborne.selenide.Selenide.open;
 class YandexTests extends TestBase {
     @Test
         void selenideSearchTest() {
-//        Configuration.browser = FIREFOX;
         // Открыть yandex
         open("http://yandex.ru");
 

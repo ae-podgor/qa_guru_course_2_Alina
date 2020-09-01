@@ -1,6 +1,5 @@
 package tests.homework_2_first_autotest_launching;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tests.TestBase;
 
@@ -13,13 +12,13 @@ import static com.codeborne.selenide.Selenide.*;
 public class AgrodomaSearchTests extends TestBase {
     private static String url = "http://agrodoma.ru/";
 
-    @BeforeEach
     void openBrowser() {
         open(url);
     }
 
     @Test
     void flowerSearch() {
+        openBrowser();
         String plantName = "Дионея";
         // Нажать на лупу и ввести название растения
         $(".fa-search").click();
@@ -30,6 +29,7 @@ public class AgrodomaSearchTests extends TestBase {
 
     @Test
     void notExistItemSearch() {
+        openBrowser();
         // Нажать на лупу и ввести название растения
         $(".fa-search").click();
         $(Objects.requireNonNull(getFocusedElement())).setValue("blah-blah").pressEnter();

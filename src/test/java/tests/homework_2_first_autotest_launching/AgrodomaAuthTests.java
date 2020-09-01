@@ -30,7 +30,6 @@ public class AgrodomaAuthTests extends TestBase {
         $(byValue("Войти")).click();
 
         // Перейти в раздел "Основные данные"
-//    $x("//ul[@class='list-unstyled']//a").shouldHave(text("Основные данные")).click();
         $(byText("Основные данные")).click();
         // Проверить, что данные в профиле совпадают с нужными
         $("#input-firstname").shouldHave(value(firstname));
@@ -38,7 +37,6 @@ public class AgrodomaAuthTests extends TestBase {
         $("#input-email").shouldHave(value(email));
 
         // Выйти из аккаунта
-//    $(".box-category a[href='http://agrodoma.ru/logout/']");
         $(byText("Выйти")).click();
     }
 
