@@ -47,3 +47,8 @@ task onlyAlfabankTests(type: Test) {
         includeTags("Alfabank")
     }
 }
+
+tasks.withType(Test) {
+    scanForTestClasses = true
+    include "**/*Tests.class" // whatever Ant pattern matches your test class files
+}

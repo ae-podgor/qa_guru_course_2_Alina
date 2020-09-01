@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 
 
-class YandexTest extends TestBase {
+class YandexTests extends TestBase {
     @Test
         void selenideSearchTest() {
 //        Configuration.browser = FIREFOX;
@@ -22,5 +22,28 @@ class YandexTest extends TestBase {
 
         // Проверить, что Selenide появился в результатах поиска
         $("html").shouldHave(text("ru.selenide.org"));
+    }
+
+    @Test
+    void javaSearchTest() {
+
+        open("http://yandex.ru");
+
+        $(byName("text")).setValue("java").pressEnter();
+
+        $("html").shouldHave(text("oracle.com"));
+
+    }
+
+    @Test
+    void avitoSearchTest() {
+
+
+        open("http://yandex.ru");
+
+        $(byName("text")).setValue("объявления").pressEnter();
+
+        $("html").shouldHave(text("avito.ru"));
+
     }
 }
