@@ -15,7 +15,7 @@ public class AttachmentsHelper {
         return message;
     }
 
-    @Attachment(value = "{attachName", type = "image/png")
+    @Attachment(value = "{attachName}", type = "image/png")
     public static byte[] attachScreenshot(String attachName) {
         return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
